@@ -1,5 +1,3 @@
-
-
 def input_parser():
     
     input_values = []
@@ -24,8 +22,8 @@ def input_parser():
             print ('Invalid number of parameters.')
             exit(-1)    
             
-    for x in input_values:
-        if (x > 1000000 or x < 101101):
+    for N in input_values:
+        if (N >= 1000000 or N <= 101101):
             print ('N value should be between 10 and 10^12.')
             exit(-1)
 
@@ -34,7 +32,14 @@ def input_parser():
 if __name__ == "__main__":
     test_cases = input_parser()   
     for x in test_cases:
-        v = int(x)
-		for i in range(1,999):
-           for j in range(1,999):
-		      pass
+        N = int(x)
+        largest_palin = 0
+        for i in range(100,999):
+            for j in range(100,999):
+                eval = i*j
+                word = '{:06d}'.format(eval)
+                if (word[0:3] == word[3:][::-1]) and (eval < N) and (eval > largest_palin):
+                    palindrome = word
+                    largest_palin = eval
+                    
+        print(palindrome)
