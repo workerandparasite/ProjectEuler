@@ -34,9 +34,13 @@ if __name__ == "__main__":
     for x in test_cases:
         N = int(x)
         largest_palin = 0
-        for i in range(100,999):
-            for j in range(100,999):
+        for i in range(999,99,-1):
+            for j in range(999,i-1,-1):
                 eval = i*j
+                if (eval > N):
+                    continue
+                if (eval <= largest_palin):
+                    break
                 word = '{:06d}'.format(eval)
                 if (word[0:3] == word[3:][::-1]) and (eval < N) and (eval > largest_palin):
                     palindrome = word
