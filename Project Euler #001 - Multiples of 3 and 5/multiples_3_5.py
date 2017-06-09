@@ -1,7 +1,6 @@
-n = input()
 numbers = []
 
-for x in range (0, int(n)):
+for _ in range (0, int(input())):
     numbers.append(int(input()))
 
 for x in numbers:
