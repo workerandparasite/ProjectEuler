@@ -7,9 +7,7 @@ def fib():
         a, b = b, a + b
         yield b    
 
-t = input()
-
-for x in range (0, int(t)):
+for x in range (0, int(input())):
     k = int(input())   
     result = 0
     for x in fib():
