@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Solution {
+public class EvenFibonacci {
     public static long fastEvenFibonacci (long k) {
         long result = 0;
         long a = 0;
