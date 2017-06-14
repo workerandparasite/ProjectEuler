@@ -5,8 +5,7 @@ def _gcd(x,y):
         x,y=y,x%y
     return x
 
-t = int(input())
-for _ in range(t):
+for _ in range(int(input())):
     n = int(input())
     print(int(reduce(lambda x,y: x*y/_gcd(x,y), range(1,n+1))))
    
