@@ -1,4 +1,4 @@
-limit = 200000
+limit = 120000
 
 def primes_sieve(n):
     not_prime = set()
@@ -8,12 +8,9 @@ def primes_sieve(n):
             prime.append(i)
             for j in range(i*i, n+1, i):
                 not_prime.add(j)
-    return prime
-    
-T = input()
-N = []
-for x in range(0,int(T)):
-    N.append(int(input()))   
+    return prime  
+
 prime = primes_sieve(limit)
-for x in N:
-    print(prime[x-1])
+for x in range(int(input())):
+    print(prime[int(input())-1])    
+
