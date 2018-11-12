@@ -1,42 +1,19 @@
+# From Editorial (shashank21j)
 
-default = -1
+memo = [0, 1] + [0] * 5000000
+result = [0, 1] + [1] * 5000000
 
-values = dict()
-
-def collatz(n):
-    #print(n)
-
-    if (values.get(n, default) != default):
-        return values[n]
+def collatzLength(n):
+    if n <= 5000000:
+        res = memo[n]
+        if not res: res = memo[n] = 1 + collatzLength(3*n + 1 if n % 2 else n // 2)
     else:
-        if n == 1:
-            return 1
-        else:
-            if n % 2 == 0:
-                v = 1 + collatz(n//2)
-                values[n] = v
-                return v
-            else:
-                v = 1 + collatz((3*n)+1)
-                values[n] = v
-                return v
+        res = 1 + collatzLength(3*n + 1 if n % 2 else n // 2)
+    return res
 
+for n in range(2, 5000001):
+    l = collatzLength(n)
+    result[n] = n if l >= memo[result[n - 1]] else result[n - 1]
 
 for _ in range(int(input())):
-    n = int(input())
-    l = []
-    mx = -1
-    idx = -1
-    
-    for i in range(1,n+1):
-        x,y = i, collatz(i)
-        if y >= mx:
-            idx = x
-            mx = y
-        l.append((x,y))
-    #print(l)
-
-
-
-    print(idx)
-
+    print (result[int(input())])
